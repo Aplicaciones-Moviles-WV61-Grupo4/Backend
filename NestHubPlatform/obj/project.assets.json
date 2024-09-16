@@ -4238,24 +4238,26 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\USER\\.nuget\\packages\\": {}
+    "C:\\Users\\GAMER\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\USER\\source\\app-moviles\\NestHubPlatform\\NestHubPlatform\\NestHubPlatform.csproj",
+      "projectUniqueName": "C:\\Users\\GAMER\\Desktop\\UPC - SOFTWARE\\UPC 2024-2\\Apps MOviles\\Backend\\NestHubPlatform\\NestHubPlatform.csproj",
       "projectName": "NestHubPlatform",
-      "projectPath": "C:\\Users\\USER\\source\\app-moviles\\NestHubPlatform\\NestHubPlatform\\NestHubPlatform.csproj",
-      "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\USER\\source\\app-moviles\\NestHubPlatform\\NestHubPlatform\\obj\\",
+      "projectPath": "C:\\Users\\GAMER\\Desktop\\UPC - SOFTWARE\\UPC 2024-2\\Apps MOviles\\Backend\\NestHubPlatform\\NestHubPlatform.csproj",
+      "packagesPath": "C:\\Users\\GAMER\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\GAMER\\Desktop\\UPC - SOFTWARE\\UPC 2024-2\\Apps MOviles\\Backend\\NestHubPlatform\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\GAMER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -4314,7 +4316,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
