@@ -1,8 +1,8 @@
-using AlquilaFacilPlatform.Shared.Domain.Repositories;
-using AlquilaFacilPlatform.Shared.Infrastructure.Persistence.EFC.Configuration;
+using NestHubPlatform.Shared.Domain.Repositories;
+using NestHubPlatform.Shared.Infrastructure.Persistence.EFC.Configuration;
 using Microsoft.EntityFrameworkCore;
 
-namespace AlquilaFacilPlatform.Shared.Infrastructure.Persistence.EFC.Repositories;
+namespace NestHubPlatform.Shared.Infrastructure.Persistence.EFC.Repositories;
 
 public abstract class BaseRepository<TEntity> : IBaseRepository<TEntity>
     where TEntity : class
