@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\NestHub.Api\\NestHubPlatform\\NestHubPlatform.csproj": {}
+    "D:\\UPC\\Apps moviles\\back\\NestHubPlatform\\NestHubPlatform.csproj": {}
   },
   "projects": {
-    "D:\\NestHub.Api\\NestHubPlatform\\NestHubPlatform.csproj": {
+    "D:\\UPC\\Apps moviles\\back\\NestHubPlatform\\NestHubPlatform.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\NestHub.Api\\NestHubPlatform\\NestHubPlatform.csproj",
+        "projectUniqueName": "D:\\UPC\\Apps moviles\\back\\NestHubPlatform\\NestHubPlatform.csproj",
         "projectName": "NestHubPlatform",
-        "projectPath": "D:\\NestHub.Api\\NestHubPlatform\\NestHubPlatform.csproj",
+        "projectPath": "D:\\UPC\\Apps moviles\\back\\NestHubPlatform\\NestHubPlatform.csproj",
         "packagesPath": "C:\\Users\\gamio\\.nuget\\packages\\",
-        "outputPath": "D:\\NestHub.Api\\NestHubPlatform\\obj\\",
+        "outputPath": "D:\\UPC\\Apps moviles\\back\\NestHubPlatform\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\gamio\\AppData\\Roaming\\NuGet\\NuGet.Config",
