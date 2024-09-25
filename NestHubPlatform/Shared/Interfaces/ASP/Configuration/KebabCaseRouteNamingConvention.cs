@@ -1,7 +1,7 @@
-using AlquilaFacilPlatform.Shared.Infrastructure.Interfaces.ASP.Configuration.Extensions;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
+using NestHubPlatform.Shared.Interfaces.ASP.Configuration.Extensions;
 
-namespace AlquilaFacilPlatform.Shared.Infrastructure.Interfaces.ASP.Configuration;
+namespace NestHubPlatform.Shared.Interfaces.ASP.Configuration;
 
 public class KebabCaseRouteNamingConvention : IControllerModelConvention
 {

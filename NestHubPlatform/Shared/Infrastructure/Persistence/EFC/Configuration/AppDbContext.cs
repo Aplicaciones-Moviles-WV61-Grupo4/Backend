@@ -1,8 +1,9 @@
-using AlquilaFacilPlatform.Shared.Infrastructure.Persistence.EFC.Configuration.Extensions;
 using EntityFrameworkCore.CreatedUpdatedDate.Extensions;
 using Microsoft.EntityFrameworkCore;
+using NestHubPlatform.Reservations.Domain.Model.Aggregates;
+using NestHubPlatform.Shared.Infrastructure.Persistence.EFC.Configuration.Extensions;
 
-namespace AlquilaFacilPlatform.Shared.Infrastructure.Persistence.EFC.Configuration;
+namespace NestHubPlatform.Shared.Infrastructure.Persistence.EFC.Configuration;
 
 public class AppDbContext(DbContextOptions options) : DbContext(options)
 {
@@ -18,7 +19,11 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
         base.OnModelCreating(builder);
         
         // Place here your entities configuration
-            
+
+        builder.Entity<Reservation>().HasKey(r => r.Id);
+        builder.Entity<Reservation>().Property(r => r.Id).IsRequired().ValueGeneratedOnAdd();
+        builder.Entity<Reservation>().Property(r => r.TotalAmount);
+        builder.Entity<Reservation>().Property(r => r.NumberPerson);
         
         // Apply SnakeCase Naming Convention
         builder.UseSnakeCaseWithPluralizedTableNamingConvention();

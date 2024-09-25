@@ -1,4 +1,4 @@
-namespace AlquilaFacilPlatform.Shared.Domain.Repositories;
+namespace NestHubPlatform.Shared.Domain.Repositories;
 
 public interface IUnitOfWork
 {
