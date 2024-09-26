@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wgkyenZbxAPOlWm0ufjoHSXS4LEwpx9v0ZdtAZuURR72krYoAdNBEjpP4aF2AiZnUelTgiLJgcBZYH2hOKJ9Ug==",
+  "dgSpecHash": "dnoU1sIWT2tqxHqEvi7e3FOK1fmyrh3iOUVBJPKW+45Osdrgj9QoQIBX4kNdvG7EC/tPiStilqudLwr2Q0ym8Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\USER\\source\\app-moviles\\NestHubPlatform\\NestHubPlatform\\NestHubPlatform.csproj",
+  "projectFilePath": "C:\\Users\\USER\\source\\app-moviles\\NestHub-Platform\\NestHubPlatform\\NestHubPlatform.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\USER\\.nuget\\packages\\bouncycastle.cryptography\\2.2.1\\bouncycastle.cryptography.2.2.1.nupkg.sha512",
     "C:\\Users\\USER\\.nuget\\packages\\entityframeworkcore.createdupdateddate\\8.0.0\\entityframeworkcore.createdupdateddate.8.0.0.nupkg.sha512",

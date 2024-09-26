@@ -4309,11 +4309,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\USER\\source\\app-moviles\\NestHubPlatform\\NestHubPlatform\\NestHubPlatform.csproj",
+      "projectUniqueName": "C:\\Users\\USER\\source\\app-moviles\\NestHub-Platform\\NestHubPlatform\\NestHubPlatform.csproj",
       "projectName": "NestHubPlatform",
-      "projectPath": "C:\\Users\\USER\\source\\app-moviles\\NestHubPlatform\\NestHubPlatform\\NestHubPlatform.csproj",
+      "projectPath": "C:\\Users\\USER\\source\\app-moviles\\NestHub-Platform\\NestHubPlatform\\NestHubPlatform.csproj",
       "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\USER\\source\\app-moviles\\NestHubPlatform\\NestHubPlatform\\obj\\",
+      "outputPath": "C:\\Users\\USER\\source\\app-moviles\\NestHub-Platform\\NestHubPlatform\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config"
