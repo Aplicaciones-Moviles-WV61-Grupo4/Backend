@@ -22,6 +22,7 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
 
         builder.Entity<Reservation>().HasKey(r => r.Id);
         builder.Entity<Reservation>().Property(r => r.Id).IsRequired().ValueGeneratedOnAdd();
+        builder.Entity<Reservation>().Property(r => r.LocalId);
         builder.Entity<Reservation>().Property(r => r.TotalAmount);
         builder.Entity<Reservation>().Property(r => r.NumberPerson);
         

@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using NestHubPlatform.Reservations.Application.Internal.OutboundServices.ACL;
+using NestHubPlatform.Reservations.Application.Internal.OutboundServices.ACL.Interfaces;
 using NestHubPlatform.Reservations.Domain.Model.Queries;
 using NestHubPlatform.Reservations.Domain.Services;
 using NestHubPlatform.Reservations.Interfaces.REST.Resources;
@@ -10,11 +12,18 @@ namespace NestHubPlatform.Reservations.Interfaces.REST;
 [Route("api/v1/[controller]")]
 public class ReservationController(
     IReservationCommandService reservationCommandService,
-    IReservationQueryService reservationQueryService) : ControllerBase
+    IReservationQueryService reservationQueryService,
+    IExternalLocalServices externalLocalServices) : ControllerBase
 {
     [HttpPost]
     public async Task<IActionResult> CreateReservation([FromBody] CreateReservationResource createReservationResource)
     {
+        var exists = await externalLocalServices.LocalExists(createReservationResource.LocalId);
+        if (!exists)
+        {
+            return NotFound($"Local with ID {createReservationResource.LocalId} does not exist.");
+        }
+        
         var createReservationCommand =
             CreateReservationCommandFromResourceAssembler.ToCommandFromResource(createReservationResource);
         var reservation = await reservationCommandService.Handle(createReservationCommand);

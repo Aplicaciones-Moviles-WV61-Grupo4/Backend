@@ -12,7 +12,7 @@ public class ReservationCommandService(
 {
     public async Task<Reservation?> Handle(CreateReservationCommand command)
     {
-        var reservation = new Reservation(command.TotalAmount, command.NumberPerson);
+        var reservation = new Reservation(command.LocalId, command.TotalAmount, command.NumberPerson);
         await reservationRepository.AddAsync(reservation);
         await unitOfWork.CompleteAsync();
 

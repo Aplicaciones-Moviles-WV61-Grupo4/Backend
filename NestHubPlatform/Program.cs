@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using NestHubPlatform.Reservations.Application.Internal.CommandServices;
+using NestHubPlatform.Reservations.Application.Internal.OutboundServices.ACL;
+using NestHubPlatform.Reservations.Application.Internal.OutboundServices.ACL.Interfaces;
 using NestHubPlatform.Reservations.Application.Internal.QueryServices;
 using NestHubPlatform.Reservations.Domain.Repositories;
 using NestHubPlatform.Reservations.Domain.Services;
@@ -89,6 +91,8 @@ builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IReservationRepository, ReservationRepository>();
 builder.Services.AddScoped<IReservationCommandService, ReservationCommandService>();
 builder.Services.AddScoped<IReservationQueryService, ReservationQueryService>();
+
+builder.Services.AddScoped<IExternalLocalServices, ExternalLocalServices>();
 
 var app = builder.Build();
 

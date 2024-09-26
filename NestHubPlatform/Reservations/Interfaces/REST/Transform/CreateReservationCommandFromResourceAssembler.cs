@@ -7,6 +7,6 @@ public static class CreateReservationCommandFromResourceAssembler
 {
     public static CreateReservationCommand ToCommandFromResource(CreateReservationResource resource)
     {
-        return new CreateReservationCommand(resource.TotalAmount, resource.NumberPerson);
+        return new CreateReservationCommand(resource.LocalId, resource.TotalAmount, resource.NumberPerson);
     }
 }

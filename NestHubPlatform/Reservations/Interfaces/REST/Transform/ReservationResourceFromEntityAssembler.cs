@@ -7,7 +7,7 @@ public static class ReservationResourceFromEntityAssembler
 {
     public static ReservationResource ToResourceFromEntity(Reservation entity)
     {
-        return new ReservationResource(entity.Id, entity.TotalAmount, entity.NumberPerson);
+        return new ReservationResource(entity.Id, entity.LocalId, entity.TotalAmount, entity.NumberPerson);
     }
     
 }
