@@ -4,7 +4,7 @@ using NestHubPlatform.Profiles.Interfaces.REST.Resources;
 
 namespace NestHubPlatform.Profiles.Interfaces.REST.Transform;
 
-public class ProfileResourceFromEntityAssembler
+public static class ProfileResourceFromEntityAssembler
 {
     public static ProfileResource ToResourceFromEntity(Profile entity)
     {

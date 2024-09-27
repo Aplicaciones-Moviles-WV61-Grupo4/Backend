@@ -16,7 +16,8 @@ namespace NestHubPlatform.Locals.Interfaces.REST;
 public class LocalsController(
     ILocalCommandService localCommandService, 
     ILocalQueryService localQueryService,
-    IExternalReviewService reviewService) 
+    IExternalReviewService reviewService,
+    IExternalProfileService profileService) 
     :ControllerBase
 {
     [HttpPost]
@@ -37,20 +38,25 @@ public class LocalsController(
         var locals = await localQueryService.Handle(getAllLocalsQuery);
         var localResources = locals.Select(LocalResourceFromEntityAssembler.ToResourceFromEntity);
 
-        var localsWithReviews = new List<object>();
+        var localsWithDetails = new List<object>();
 
         foreach (var localResource in localResources)
         {
             var reviews = await reviewService.GetAllReviewsByLocalId(localResource.Id);
 
-            localsWithReviews.Add(new
+            // Obtener el perfil del dueño del local
+            var profile = await profileService.GetProfileById(localResource.UserId);
+            var localOwnerName = profile?.FullName; // Asegúrate de que el perfil no sea nulo
+
+            localsWithDetails.Add(new
             {
                 Local = localResource,
-                Reviews = reviews
+                Reviews = reviews,
+                LocalOwnerName = localOwnerName // Añadir el nombre del dueño
             });
         }
 
-        return Ok(localsWithReviews);
+        return Ok(localsWithDetails);
     }
 
     [HttpGet("{localId:int}")]
@@ -63,13 +69,18 @@ public class LocalsController(
 
         var reviews = await reviewService.GetAllReviewsByLocalId(localResource.Id);
 
+        var profile = await profileService.GetProfileById(localResource.UserId);
+
+        var localOwnerName  = profile?.FullName;
+
         var response = new
         {
             Local = localResource,
-            Reviews = reviews
+            Reviews = reviews,
+            LocalOwnerName = localOwnerName  
         };
-        
+
         return Ok(response);
     }
-    
+
 }

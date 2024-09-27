@@ -18,7 +18,7 @@ public partial class Local
     
     
     public Local(string district, string street, string localType, string country, string city, int price, 
-           string photoUrl, string descriptionMessage , int localCategoryId) : this()
+           string photoUrl, string descriptionMessage , int localCategoryId, int userId) : this()
     {
         LType = new LocalType(localType);
         Address = new StreetAddress(district, street);
@@ -27,6 +27,7 @@ public partial class Local
         Place = new CityPlace(country, city);
         Description = new DescriptionMessage(descriptionMessage);
         LocalCategoryId = localCategoryId;
+        UserId = userId;
     }
 
     public Local(CreateLocalCommand command)

@@ -1,4 +1,4 @@
-using AlquilaFacilPlatform.Locals.Application.Internal.CommandServices;
+using NestHubPlatform.Locals.Application.Internal.CommandServices;
 using NestHubPlatform.Locals.Application.Internal.CommandServices;
 using NestHubPlatform.Locals.Application.Internal.QueryServices;
 using NestHubPlatform.Locals.Domain.Repositories;
@@ -15,6 +15,13 @@ using Microsoft.OpenApi.Models;
 using NestHubPlatform.Locals.Application.Internal.OutboundServices.ACL;
 using NestHubPlatform.Locals.Application.Internal.OutboundServices.ACL.Interfaces;
 using NestHubPlatform.Locals.Interfaces.REST.Transform;
+using NestHubPlatform.Profiles.Application.Internal.CommandServices;
+using NestHubPlatform.Profiles.Application.Internal.QueryServices;
+using NestHubPlatform.Profiles.Domain.Repositories;
+using NestHubPlatform.Profiles.Domain.Services;
+using NestHubPlatform.Profiles.Infrastructure.Persistence.EFC.Repositories;
+using NestHubPlatform.Profiles.Interfaces.ACL;
+using NestHubPlatform.Profiles.Interfaces.ACL.Services;
 using NestHubPlatform.Reservations.Application.Internal.CommandServices;
 using NestHubPlatform.Reservations.Application.Internal.OutboundServices.ACL;
 using NestHubPlatform.Reservations.Application.Internal.OutboundServices.ACL.Interfaces;
@@ -23,6 +30,8 @@ using NestHubPlatform.Reservations.Domain.Repositories;
 using NestHubPlatform.Reservations.Domain.Services;
 using NestHubPlatform.Reservations.Infrastructure.Persistence.EFC.Repositories;
 using NestHubPlatform.Reviews.Application.CommandServices;
+using NestHubPlatform.Reviews.Application.OutboundServices.ACL;
+using NestHubPlatform.Reviews.Application.OutboundServices.ACL.Interfaces;
 using NestHubPlatform.Reviews.Application.QueryServices;
 using NestHubPlatform.Reviews.Domain.Model.Aggregates;
 using NestHubPlatform.Reviews.Domain.Repositories;
@@ -126,12 +135,22 @@ builder.Services.AddScoped<IExternalLocalServices, ExternalLocalServices>();
 
 // CONTACTS
 
+// PROFILES
+
+builder.Services.AddScoped<IProfileQueryService, ProfileQueryService>();
+builder.Services.AddScoped<IProfileCommandService, ProfileCommandService>();
+builder.Services.AddScoped<IProfileRepository, ProfileRepository>();
+builder.Services.AddScoped<IProfilesContextFacade, ProfilesContextFacade>();
+builder.Services.AddScoped<IExternalProfileService, ExternalProfileService>();
+
 // REVIEWS
 builder.Services.AddScoped<IReviewCommandService, ReviewCommandService>();
 builder.Services.AddScoped<IReviewQueryService, ReviewQueryService>();
 builder.Services.AddScoped<IReviewContextFacade, ReviewContextFacade>();
 builder.Services.AddScoped<IExternalReviewService, ExternalReviewService>();
 builder.Services.AddScoped<IReviewRepository, ReviewRepository>();
+builder.Services.AddScoped<IExternalProfilesByReviewsService, ExternalProfilesByReviewsService>();
+
 
 var app = builder.Build();
 

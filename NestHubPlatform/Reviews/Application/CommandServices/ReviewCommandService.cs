@@ -1,3 +1,5 @@
+using NestHubPlatform.Profiles.Domain.Model.Aggregates;
+using NestHubPlatform.Reviews.Application.OutboundServices.ACL.Interfaces;
 using NestHubPlatform.Reviews.Domain.Model.Aggregates;
 using NestHubPlatform.Reviews.Domain.Model.Commands;
 using NestHubPlatform.Reviews.Domain.Repositories;
@@ -8,6 +10,7 @@ namespace NestHubPlatform.Reviews.Application.CommandServices;
 
 public class ReviewCommandService(
     IReviewRepository reviewRepository,
+    IExternalProfilesByReviewsService externalProfilesByReviewsService,
     IUnitOfWork unitOfWork) : IReviewCommandService
 {
     public async Task<Review?> Handle(CreateReviewCommand command)

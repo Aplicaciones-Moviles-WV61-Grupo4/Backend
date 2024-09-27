@@ -5,7 +5,7 @@ using NestHubPlatform.Locals.Domain.Repositories;
 using NestHubPlatform.Locals.Domain.Services;
 using NestHubPlatform.Shared.Domain.Repositories;
 
-namespace AlquilaFacilPlatform.Locals.Application.Internal.CommandServices;
+namespace NestHubPlatform.Locals.Application.Internal.CommandServices;
 
 public class LocalCommandService (ILocalRepository localRepository, ILocalCategoryRepository localCategoryRepository, IUnitOfWork unitOfWork) : ILocalCommandService
 {
@@ -14,7 +14,7 @@ public class LocalCommandService (ILocalRepository localRepository, ILocalCatego
     {
         //var userAuthenticated = User.GlobalVariables.UserId;
         var local = new Local(command.District, command.Street, command.LocalType, command.Country, command.City, 
-            command.Price, command.PhotoUrl, command.DescriptionMessage, command.LocalCategoryId);
+            command.Price, command.PhotoUrl, command.DescriptionMessage, command.LocalCategoryId, command.UserId);
         //local.UserId = userAuthenticated;
         await localRepository.AddAsync(local);
         await unitOfWork.CompleteAsync();
