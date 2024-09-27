@@ -4243,11 +4243,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\USER\\source\\app-moviles\\newBack\\NestHubPlatform\\NestHubPlatform.csproj",
+      "projectUniqueName": "C:\\Users\\USER\\source\\app-moviles\\newba\\NestHubPlatform\\NestHubPlatform.csproj",
       "projectName": "NestHubPlatform",
-      "projectPath": "C:\\Users\\USER\\source\\app-moviles\\newBack\\NestHubPlatform\\NestHubPlatform.csproj",
+      "projectPath": "C:\\Users\\USER\\source\\app-moviles\\newba\\NestHubPlatform\\NestHubPlatform.csproj",
       "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\USER\\source\\app-moviles\\newBack\\NestHubPlatform\\obj\\",
+      "outputPath": "C:\\Users\\USER\\source\\app-moviles\\newba\\NestHubPlatform\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config"
