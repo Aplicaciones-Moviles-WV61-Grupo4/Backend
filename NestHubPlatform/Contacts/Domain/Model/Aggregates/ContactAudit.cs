@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using EntityFrameworkCore.CreatedUpdatedDate.Contracts;
 
-namespace AlquilaFacilPlatform.Contacts.Domain.Model.Aggregates;
+namespace NestHubPlatform.Contacts.Domain.Model.Aggregates;
 
 public partial class Contact : IEntityWithCreatedUpdatedDate 
 {

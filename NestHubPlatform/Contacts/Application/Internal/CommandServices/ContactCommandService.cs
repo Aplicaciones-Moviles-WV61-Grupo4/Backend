@@ -1,11 +1,11 @@
-using AlquilaFacilPlatform.Contacts.Domain.Model.Aggregates;
-using AlquilaFacilPlatform.Contacts.Domain.Model.Commands;
-using AlquilaFacilPlatform.Contacts.Domain.Repositories;
-using AlquilaFacilPlatform.Contacts.Domain.Services;
+using NestHubPlatform.Contacts.Domain.Model.Aggregates;
+using NestHubPlatform.Contacts.Domain.Model.Commands;
+using NestHubPlatform.Contacts.Domain.Repositories;
+using NestHubPlatform.Contacts.Domain.Services;
 //using AlquilaFacilPlatform.IAM.Domain.Model.Aggregates;
-using AlquilaFacilPlatform.Shared.Domain.Repositories;
+using NestHubPlatform.Shared.Domain.Repositories;
 
-namespace NestHub.Contacts.Application.Internal.CommandServices;
+namespace NestHubPlatform.Contacts.Application.Internal.CommandServices;
 
 public class ContactCommandService (IContactRepository contactRepository, IUnitOfWork unitOfWork) : IContactCommandService
 {

@@ -1,7 +1,7 @@
-using AlquilaFacilPlatform.Contacts.Domain.Model.Aggregates;
-using AlquilaFacilPlatform.Shared.Domain.Repositories;
+using NestHubPlatform.Contacts.Domain.Model.Aggregates;
+using NestHubPlatform.Shared.Domain.Repositories;
 
-namespace AlquilaFacilPlatform.Contacts.Domain.Repositories;
+namespace NestHubPlatform.Contacts.Domain.Repositories;
 
 public interface IContactRepository : IBaseRepository<Contact>
 {

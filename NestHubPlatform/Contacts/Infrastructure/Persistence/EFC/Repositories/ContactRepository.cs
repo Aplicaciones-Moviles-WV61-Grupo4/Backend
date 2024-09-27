@@ -1,10 +1,10 @@
-using AlquilaFacilPlatform.Contacts.Domain.Model.Aggregates;
-using AlquilaFacilPlatform.Contacts.Domain.Repositories;
-using AlquilaFacilPlatform.Shared.Infrastructure.Persistence.EFC.Configuration;
-using AlquilaFacilPlatform.Shared.Infrastructure.Persistence.EFC.Repositories;
+using NestHubPlatform.Contacts.Domain.Model.Aggregates;
+using NestHubPlatform.Contacts.Domain.Repositories;
+using NestHubPlatform.Shared.Infrastructure.Persistence.EFC.Configuration;
+using NestHubPlatform.Shared.Infrastructure.Persistence.EFC.Repositories;
 using Microsoft.EntityFrameworkCore;
 
-namespace AlquilaFacilPlatform.Contacts.Infrastructure.Persistence.EFC.Repositories;
+namespace NestHubPlatform.Contacts.Infrastructure.Persistence.EFC.Repositories;
 
 public class ContactRepository(AppDbContext context) : BaseRepository<Contact>(context), IContactRepository
 {

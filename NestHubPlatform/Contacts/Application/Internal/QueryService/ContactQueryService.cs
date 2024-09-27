@@ -1,9 +1,9 @@
-using AlquilaFacilPlatform.Contacts.Domain.Model.Aggregates;
-using AlquilaFacilPlatform.Contacts.Domain.Model.Queries;
-using AlquilaFacilPlatform.Contacts.Domain.Repositories;
-using AlquilaFacilPlatform.Contacts.Domain.Services;
+using NestHubPlatform.Contacts.Domain.Model.Aggregates;
+using NestHubPlatform.Contacts.Domain.Model.Queries;
+using NestHubPlatform.Contacts.Domain.Repositories;
+using NestHubPlatform.Contacts.Domain.Services;
 
-namespace AlquilaFacilPlatform.Contacts.Application.Internal.QueryService;
+namespace NestHubPlatform.Contacts.Application.Internal.QueryService;
 
 public class ContactQueryService(IContactRepository contactRepository) : IContactQueryService
 {

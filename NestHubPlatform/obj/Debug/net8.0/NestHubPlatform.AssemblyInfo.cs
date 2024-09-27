@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NestHubPlatform")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6bd13cd05f6cbf2eb78b452ca1ffbecd54234847")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b8e115ff4677439235156a344da8bea6f03a4b95")]
 [assembly: System.Reflection.AssemblyProductAttribute("NestHubPlatform")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NestHubPlatform")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

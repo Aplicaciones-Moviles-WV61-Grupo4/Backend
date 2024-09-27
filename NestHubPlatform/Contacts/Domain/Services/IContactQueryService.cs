@@ -1,7 +1,7 @@
-using AlquilaFacilPlatform.Contacts.Domain.Model.Aggregates;
-using AlquilaFacilPlatform.Contacts.Domain.Model.Queries;
+using NestHubPlatform.Contacts.Domain.Model.Aggregates;
+using NestHubPlatform.Contacts.Domain.Model.Queries;
 
-namespace AlquilaFacilPlatform.Contacts.Domain.Services;
+namespace NestHubPlatform.Contacts.Domain.Services;
 
 public interface IContactQueryService
 {

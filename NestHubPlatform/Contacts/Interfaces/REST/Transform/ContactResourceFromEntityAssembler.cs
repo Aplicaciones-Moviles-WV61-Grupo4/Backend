@@ -1,7 +1,7 @@
-using AlquilaFacilPlatform.Contacts.Domain.Model.Aggregates;
-using AlquilaFacilPlatform.Contacts.Interfaces.REST.Resource;
+using NestHubPlatform.Contacts.Domain.Model.Aggregates;
+using NestHubPlatform.Contacts.Interfaces.REST.Resource;
 
-namespace AlquilaFacilPlatform.Contacts.Interfaces.REST.Transform;
+namespace NestHubPlatform.Contacts.Interfaces.REST.Transform;
 
 public static class ContactResourceFromEntityAssembler
 {

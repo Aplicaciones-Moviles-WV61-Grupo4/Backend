@@ -1,14 +1,14 @@
 using System.Net.Mime;
-using AlquilaFacilPlatform.Contacts.Domain.Model.Aggregates;
-using AlquilaFacilPlatform.Contacts.Domain.Model.Queries;
-using AlquilaFacilPlatform.Contacts.Domain.Repositories;
-using AlquilaFacilPlatform.Contacts.Domain.Services;
-using AlquilaFacilPlatform.Contacts.Interfaces.REST.Resource;
-using AlquilaFacilPlatform.Contacts.Interfaces.REST.Transform;
+using NestHubPlatform.Contacts.Domain.Model.Aggregates;
+using NestHubPlatform.Contacts.Domain.Model.Queries;
+using NestHubPlatform.Contacts.Domain.Repositories;
+using NestHubPlatform.Contacts.Domain.Services;
+using NestHubPlatform.Contacts.Interfaces.REST.Resource;
+using NestHubPlatform.Contacts.Interfaces.REST.Transform;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Formatters;
 
-namespace AlquilaFacilPlatform.Contacts.Interfaces.REST;
+namespace NestHubPlatform.Contacts.Interfaces.REST;
 
 
 [ApiController]

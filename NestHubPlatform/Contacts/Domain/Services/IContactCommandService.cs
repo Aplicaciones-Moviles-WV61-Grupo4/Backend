@@ -1,7 +1,7 @@
-using AlquilaFacilPlatform.Contacts.Domain.Model.Aggregates;
-using AlquilaFacilPlatform.Contacts.Domain.Model.Commands;
+using NestHubPlatform.Contacts.Domain.Model.Aggregates;
+using NestHubPlatform.Contacts.Domain.Model.Commands;
 
-namespace AlquilaFacilPlatform.Contacts.Domain.Services;
+namespace NestHubPlatform.Contacts.Domain.Services;
 
 public interface IContactCommandService
 {

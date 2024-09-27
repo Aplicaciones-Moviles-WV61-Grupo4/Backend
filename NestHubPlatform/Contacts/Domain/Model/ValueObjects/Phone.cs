@@ -1,4 +1,4 @@
-namespace AlquilaFacilPlatform.Contacts.Domain.Model.ValueObjects;
+namespace NestHubPlatform.Contacts.Domain.Model.ValueObjects;
 
 public record Phone(string PhoneNumber)
 {

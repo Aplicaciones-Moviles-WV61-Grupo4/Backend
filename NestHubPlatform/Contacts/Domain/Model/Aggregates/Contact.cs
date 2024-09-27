@@ -1,9 +1,9 @@
 using System.Collections;
-using AlquilaFacilPlatform.Contacts.Domain.Model.Commands;
-using AlquilaFacilPlatform.Contacts.Domain.Model.ValueObjects;
+using NestHubPlatform.Contacts.Domain.Model.Commands;
+using NestHubPlatform.Contacts.Domain.Model.ValueObjects;
 //using Phone = AlquilaFacilPlatform.Profiles.Domain.Model.ValueObjects.Phone;
 
-namespace AlquilaFacilPlatform.Contacts.Domain.Model.Aggregates;
+namespace NestHubPlatform.Contacts.Domain.Model.Aggregates;
 
 public partial class Contact : IEnumerable, IEnumerable<Contact>
 {
