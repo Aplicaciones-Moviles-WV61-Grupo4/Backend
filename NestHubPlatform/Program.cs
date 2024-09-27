@@ -12,6 +12,9 @@ using NestHubPlatform.Shared.Infrastructure.Persistence.EFC.Configuration;
 using NestHubPlatform.Shared.Infrastructure.Persistence.EFC.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using NestHubPlatform.Locals.Application.Internal.OutboundServices.ACL;
+using NestHubPlatform.Locals.Application.Internal.OutboundServices.ACL.Interfaces;
+using NestHubPlatform.Locals.Interfaces.REST.Transform;
 using NestHubPlatform.Reservations.Application.Internal.CommandServices;
 using NestHubPlatform.Reservations.Application.Internal.OutboundServices.ACL;
 using NestHubPlatform.Reservations.Application.Internal.OutboundServices.ACL.Interfaces;
@@ -21,9 +24,12 @@ using NestHubPlatform.Reservations.Domain.Services;
 using NestHubPlatform.Reservations.Infrastructure.Persistence.EFC.Repositories;
 using NestHubPlatform.Reviews.Application.CommandServices;
 using NestHubPlatform.Reviews.Application.QueryServices;
+using NestHubPlatform.Reviews.Domain.Model.Aggregates;
 using NestHubPlatform.Reviews.Domain.Repositories;
 using NestHubPlatform.Reviews.Domain.Services;
 using NestHubPlatform.Reviews.Infrastructure.Persistence.EFC.Repositories;
+using NestHubPlatform.Reviews.Interfaces.ACL;
+using NestHubPlatform.Reviews.Interfaces.ACL.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -123,6 +129,8 @@ builder.Services.AddScoped<IExternalLocalServices, ExternalLocalServices>();
 // REVIEWS
 builder.Services.AddScoped<IReviewCommandService, ReviewCommandService>();
 builder.Services.AddScoped<IReviewQueryService, ReviewQueryService>();
+builder.Services.AddScoped<IReviewContextFacade, ReviewContextFacade>();
+builder.Services.AddScoped<IExternalReviewService, ExternalReviewService>();
 builder.Services.AddScoped<IReviewRepository, ReviewRepository>();
 
 var app = builder.Build();

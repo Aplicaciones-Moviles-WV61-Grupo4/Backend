@@ -43,4 +43,14 @@ public class ReviewController(
             .ToResourceFromEntity);
         return Ok(resources);
     }
+    
+    [HttpGet("local/{localId}")]
+    public async Task<IActionResult> GetReviewsByLocalId([FromRoute] int localId)
+    {
+        var getReviewsByLocalIdQuery = new GetReviewsByLocalIdQuery(localId);
+        var reviews = await reviewQueryService.Handle(getReviewsByLocalIdQuery);
+
+        var resources = reviews.Select(ReviewResourceFromEntityAssembler.ToResourceFromEntity);
+        return Ok(resources);
+    }
 }

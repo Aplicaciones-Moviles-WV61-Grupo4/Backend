@@ -7,6 +7,7 @@ namespace NestHubPlatform.Reviews.Application.QueryServices;
 
 public class ReviewQueryService(IReviewRepository reviewRepository) : IReviewQueryService
 {
+
     public async Task<Review?> Handle(GetReviewByIdQuery query)
     {
         return await reviewRepository.FindByIdAsync(query.Id);
@@ -15,5 +16,10 @@ public class ReviewQueryService(IReviewRepository reviewRepository) : IReviewQue
     public async Task<IEnumerable<Review>> Handle(GetAllReviewsQuery query)
     {
         return await reviewRepository.ListAsync();
+    }
+
+    public async Task<IEnumerable<Review>> Handle(GetReviewsByLocalIdQuery query)
+    {
+        return await reviewRepository.FindByLocalIdAsync(query.Id);
     }
 }
