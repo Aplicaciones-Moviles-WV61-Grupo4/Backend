@@ -19,6 +19,11 @@ using NestHubPlatform.Reservations.Application.Internal.QueryServices;
 using NestHubPlatform.Reservations.Domain.Repositories;
 using NestHubPlatform.Reservations.Domain.Services;
 using NestHubPlatform.Reservations.Infrastructure.Persistence.EFC.Repositories;
+using NestHubPlatform.Reviews.Application.CommandServices;
+using NestHubPlatform.Reviews.Application.QueryServices;
+using NestHubPlatform.Reviews.Domain.Repositories;
+using NestHubPlatform.Reviews.Domain.Services;
+using NestHubPlatform.Reviews.Infrastructure.Persistence.EFC.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -115,7 +120,10 @@ builder.Services.AddScoped<IExternalLocalServices, ExternalLocalServices>();
 
 // CONTACTS
 
-
+// REVIEWS
+builder.Services.AddScoped<IReviewCommandService, ReviewCommandService>();
+builder.Services.AddScoped<IReviewQueryService, ReviewQueryService>();
+builder.Services.AddScoped<IReviewRepository, ReviewRepository>();
 
 var app = builder.Build();
 

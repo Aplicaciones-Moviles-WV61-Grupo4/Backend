@@ -5,6 +5,7 @@ using NestHubPlatform.Locals.Domain.Model.Aggregates;
 using NestHubPlatform.Locals.Domain.Model.Entities;
 using NestHubPlatform.Profiles.Domain.Model.Aggregates;
 using NestHubPlatform.Reservations.Domain.Model.Aggregates;
+using NestHubPlatform.Reviews.Domain.Model.Aggregates;
 
 namespace NestHubPlatform.Shared.Infrastructure.Persistence.EFC.Configuration;
 
@@ -91,6 +92,14 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
         builder.Entity<Reservation>().Property(r => r.NumberPerson);
         
         // CONTACTS
+        
+        // REVIEWS
+        builder.Entity<Review>().HasKey(r => r.Id);
+        builder.Entity<Review>().Property(r => r.Id).IsRequired().ValueGeneratedOnAdd();
+        builder.Entity<Review>().Property(r => r.LocalId);
+        builder.Entity<Review>().Property(r => r.UserId);
+        builder.Entity<Review>().Property(r => r.Comment);
+        builder.Entity<Review>().Property(r => r.Rating);
         
         // PAYMENTS
         

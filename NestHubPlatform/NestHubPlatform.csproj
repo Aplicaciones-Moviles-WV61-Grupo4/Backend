@@ -22,7 +22,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Reservations\Domain\Model\ValueObjects\" />
       <Folder Include="Reservations\Infrastructure\" />
     </ItemGroup>
 
