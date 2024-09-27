@@ -12,6 +12,13 @@ using NestHubPlatform.Shared.Infrastructure.Persistence.EFC.Configuration;
 using NestHubPlatform.Shared.Infrastructure.Persistence.EFC.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using NestHubPlatform.Reservations.Application.Internal.CommandServices;
+using NestHubPlatform.Reservations.Application.Internal.OutboundServices.ACL;
+using NestHubPlatform.Reservations.Application.Internal.OutboundServices.ACL.Interfaces;
+using NestHubPlatform.Reservations.Application.Internal.QueryServices;
+using NestHubPlatform.Reservations.Domain.Repositories;
+using NestHubPlatform.Reservations.Domain.Services;
+using NestHubPlatform.Reservations.Infrastructure.Persistence.EFC.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -89,6 +96,8 @@ builder.Services.AddDbContext<AppDbContext>(
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 // Profiles Bounded Context Injection Configuration
+
+// LOCALS
 builder.Services.AddScoped<ILocalCommandService, LocalCommandService>();
 builder.Services.AddScoped<ILocalQueryService, LocalQueryService>();
 builder.Services.AddScoped<ILocalsContextFacade, LocalsContextFacade>();
@@ -96,6 +105,17 @@ builder.Services.AddScoped<ILocalRepository, LocalRepository>();
 builder.Services.AddScoped<ILocalCategoryRepository, LocalCategoryRepository>();
 builder.Services.AddScoped<ILocalCategoryCommandService, LocalCategoryCommandService>();
 builder.Services.AddScoped<ILocalCategoryQueryService, LocalCategoryQueryService>();
+
+// RESERVATIONS
+
+builder.Services.AddScoped<IReservationRepository, ReservationRepository>();
+builder.Services.AddScoped<IReservationCommandService, ReservationCommandService>();
+builder.Services.AddScoped<IReservationQueryService, ReservationQueryService>();
+builder.Services.AddScoped<IExternalLocalServices, ExternalLocalServices>();
+
+// CONTACTS
+
+
 
 var app = builder.Build();
 
