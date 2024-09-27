@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 
-namespace NestHubPlatform.Shared.Infrastructure.Interfaces.ASP.Configuration.Extensions;
+namespace NestHubPlatform.Shared.Interfaces.ASP.Configuration.Extensions;
 
 public static class ModelStateExtensions
 {
