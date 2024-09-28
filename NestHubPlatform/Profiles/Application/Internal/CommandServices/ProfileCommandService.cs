@@ -12,7 +12,7 @@ public class ProfileCommandService(IProfileRepository profileRepository, IUnitOf
     public async Task<Profile?> Handle(CreateProfileCommand command)
     {
         var profile = new Profile(command.Name, command.FatherName, command.MotherName, command.DateOfBirth, 
-            command.DocumentNumber, command.Phone, command.UserId);
+            command.DocumentNumber, command.Phone);
         try
         {
             await profileRepository.AddAsync(profile);

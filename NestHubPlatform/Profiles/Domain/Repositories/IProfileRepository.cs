@@ -5,5 +5,5 @@ namespace NestHubPlatform.Profiles.Domain.Repositories;
 
 public interface IProfileRepository : IBaseRepository<Profile>
 {
-    
+    Task<List<Profile>> GetProfilesByDocumentNumber(string commandDocumentNumber);
 }
