@@ -10,18 +10,21 @@ public class Payment
     public float Amount { get; set; }
     public string PaymentMethod { get; set; }
     
-    public Invoice Invoices { get; }
+    public Invoice Invoice { get; internal set; }
     public int InvoiceId { get; private set; }
     public EPaymentStatus Status { get; protected set; }
 
     public Payment()
     {
-        InvoiceId = Invoices.Id;
+        InvoiceId = Invoice.Id;
         Status = EPaymentStatus.Pending;
     }
 
-    public Payment(int invoiceId)
+    public Payment(string reservation, float amount, String paymentMethod, int invoiceId)
     {
+        Reservation = reservation;
+        Amount = amount;
+        PaymentMethod = paymentMethod;
         InvoiceId = invoiceId;
     }
 

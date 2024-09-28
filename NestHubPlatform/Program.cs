@@ -12,9 +12,21 @@ using NestHubPlatform.Shared.Infrastructure.Persistence.EFC.Configuration;
 using NestHubPlatform.Shared.Infrastructure.Persistence.EFC.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using NestHubPlatform.Contacts.Application.Internal.CommandServices;
+using NestHubPlatform.Contacts.Application.Internal.QueryService;
+using NestHubPlatform.Contacts.Domain.Repositories;
+using NestHubPlatform.Contacts.Domain.Services;
+using NestHubPlatform.Contacts.Infrastructure.Persistence.EFC.Repositories;
 using NestHubPlatform.Locals.Application.Internal.OutboundServices.ACL;
 using NestHubPlatform.Locals.Application.Internal.OutboundServices.ACL.Interfaces;
 using NestHubPlatform.Locals.Interfaces.REST.Transform;
+using NestHubPlatform.Payments.Application.Internal.CommandServices;
+using NestHubPlatform.Payments.Application.Internal.QueryServices;
+using NestHubPlatform.Payments.Domain.Repositories;
+using NestHubPlatform.Payments.Domain.Services;
+using NestHubPlatform.Payments.Infrastructure.EFC.Repositories;
+using NestHubPlatform.Payments.Interfaces.ACL;
+using NestHubPlatform.Payments.Interfaces.ACL.Services;
 using NestHubPlatform.Profiles.Application.Internal.CommandServices;
 using NestHubPlatform.Profiles.Application.Internal.QueryServices;
 using NestHubPlatform.Profiles.Domain.Repositories;
@@ -133,7 +145,23 @@ builder.Services.AddScoped<IReservationCommandService, ReservationCommandService
 builder.Services.AddScoped<IReservationQueryService, ReservationQueryService>();
 builder.Services.AddScoped<IExternalLocalServices, ExternalLocalServices>();
 
+// PAYMENTS
+
+builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
+builder.Services.AddScoped<IPaymentCommandService, PaymentCommandService>();
+builder.Services.AddScoped<IPaymentQueryService, PaymentQueryService>();
+builder.Services.AddScoped<IPaymentContextFacade, PaymentContextFacade>();
+builder.Services.AddScoped<IInvoiceRepository, InvoiceRepository>();
+builder.Services.AddScoped<IInvoiceCommandService, InvoiceCommandService>();
+builder.Services.AddScoped<IInvoiceRepository, InvoiceRepository>();
+builder.Services.AddScoped<IInvoiceQueryService, InvoiceQueryService>();
+
 // CONTACTS
+
+builder.Services.AddScoped<IContactRepository, ContactRepository>();
+builder.Services.AddScoped<IContactCommandService, ContactCommandService>();
+builder.Services.AddScoped<IContactQueryService, ContactQueryService>();
+
 
 // PROFILES
 

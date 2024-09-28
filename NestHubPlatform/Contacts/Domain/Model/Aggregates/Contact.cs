@@ -12,7 +12,7 @@ public partial class Contact : IEnumerable, IEnumerable<Contact>
         EAdress = new Email();
         CMessage = new Message();
         FullName = new NameSurname();
-        //NPhone = new Phone();
+        NPhone = new Phone();
     }
 
     public Contact(string name, string lastname, string message, string email, string phone, int propertyId) : this()
@@ -20,7 +20,7 @@ public partial class Contact : IEnumerable, IEnumerable<Contact>
         EAdress = new Email(email);
         CMessage = new Message(message);
         FullName = new NameSurname(name, lastname);
-        //NPhone = new Phone(phone);
+        NPhone = new Phone(phone);
         this.propertyId = propertyId;
     }
 
@@ -29,7 +29,7 @@ public partial class Contact : IEnumerable, IEnumerable<Contact>
         EAdress = new Email(command.Email);
         CMessage = new Message(command.Message);
         FullName = new NameSurname(command.Name, command.Lastname);
-        //NPhone = new Phone(command.Phone);
+        NPhone = new Phone(command.Phone);
     }
 
     public int Id { get; }

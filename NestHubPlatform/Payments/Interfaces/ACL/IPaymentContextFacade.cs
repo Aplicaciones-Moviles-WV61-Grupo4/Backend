@@ -2,5 +2,5 @@ namespace NestHubPlatform.Payments.Interfaces.ACL;
 
 public interface IPaymentContextFacade
 {
-    Task<int> CreatePayment(int invoiceId);
+    //Task<int> CreatePayment(int invoiceId);
 }

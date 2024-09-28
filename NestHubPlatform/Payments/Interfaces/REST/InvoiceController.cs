@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+/*using Microsoft.AspNetCore.Mvc;
 using NestHubPlatform.Payments.Domain.Model.Queries;
 using NestHubPlatform.Payments.Domain.Services;
 using NestHubPlatform.Payments.Interfaces.REST.Resources;
@@ -44,4 +44,4 @@ public class InvoiceController(
         var resources = invoices.Select(InvoiceResourceFromEntityAssembler.ToResourceFromEntity);
         return Ok(resources);
     }
-}
+}*/

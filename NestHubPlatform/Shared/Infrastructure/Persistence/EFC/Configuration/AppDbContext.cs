@@ -1,8 +1,11 @@
 using NestHubPlatform.Shared.Infrastructure.Persistence.EFC.Configuration.Extensions;
 using EntityFrameworkCore.CreatedUpdatedDate.Extensions;
 using Microsoft.EntityFrameworkCore;
+using NestHubPlatform.Contacts.Domain.Model.Aggregates;
 using NestHubPlatform.Locals.Domain.Model.Aggregates;
 using NestHubPlatform.Locals.Domain.Model.Entities;
+using NestHubPlatform.Payments.Domain.Model.Aggregates;
+using NestHubPlatform.Payments.Domain.Model.Entities;
 using NestHubPlatform.Profiles.Domain.Model.Aggregates;
 using NestHubPlatform.Reservations.Domain.Model.Aggregates;
 using NestHubPlatform.Reviews.Domain.Model.Aggregates;
@@ -35,8 +38,6 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
             .WithOne(t => t.LocalCategory)
             .HasForeignKey(t => t.LocalCategoryId)
             .HasPrincipalKey(t => t.Id);
-        
-        
         
         builder.Entity<Local>().HasKey(p => p.Id);
         builder.Entity<Local>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
@@ -92,6 +93,36 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
         builder.Entity<Reservation>().Property(r => r.NumberPerson);
         
         // CONTACTS
+
+        builder.Entity<Contact>().HasKey(p => p.Id);
+        builder.Entity<Contact>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+        builder.Entity<Contact>().OwnsOne(c => c.EAdress,
+            n =>
+            {
+                n.WithOwner().HasForeignKey("Id");
+                n.Property(c => c.EmailAdress).HasColumnName("EmailAdress");
+            });
+        builder.Entity<Contact>().OwnsOne(p => p.CMessage,
+            e =>
+            {
+                e.WithOwner().HasForeignKey("Id");
+                e.Property(a => a.ContactMessage).HasColumnName("ContactMessage");
+            });
+        builder.Entity<Contact>().OwnsOne(p => p.FullName,
+            a =>
+            {
+                a.WithOwner().HasForeignKey("Id");
+                a.Property(s => s.Name).HasColumnName("Name");
+                a.Property(s => s.Lastname).HasColumnName("Lastname");
+
+            });
+        builder.Entity<Contact>().OwnsOne(p => p.NPhone,
+            h =>
+            {
+                h.WithOwner().HasForeignKey("Id");
+                h.Property(g => g.PhoneNumber).HasColumnName("PhoneNumber");
+
+            });
         
         // REVIEWS
         builder.Entity<Review>().HasKey(r => r.Id);
@@ -102,6 +133,28 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
         builder.Entity<Review>().Property(r => r.Rating);
         
         // PAYMENTS
+
+        builder.Entity<Payment>().HasKey(p => p.Id);
+        builder.Entity<Payment>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
+        builder.Entity<Payment>().Property(p => p.Amount);
+        builder.Entity<Payment>().Property(p => p.Reservation);
+        builder.Entity<Payment>().Property(p => p.InvoiceId);
+        builder.Entity<Payment>().Property(p => p.Status);
+        builder.Entity<Payment>().Property(p => p.PaymentMethod);
+        
+        // INVOICES
+        
+        builder.Entity<Invoice>().HasKey(i => i.Id);
+        builder.Entity<Invoice>().Property(i => i.Id).IsRequired().ValueGeneratedOnAdd();
+        builder.Entity<Invoice>().Property(i => i.PaymentId).IsRequired();
+        builder.Entity<Invoice>().Property(i => i.Amount).IsRequired();
+        builder.Entity<Invoice>().Property(i => i.Date).IsRequired();
+        
+        builder.Entity<Invoice>()
+            .HasMany(i => i.Payments)
+            .WithOne(p => p.Invoice)
+            .HasForeignKey(p => p.InvoiceId)
+            .HasPrincipalKey(i => i.Id);
         
         // PROFILES 
         

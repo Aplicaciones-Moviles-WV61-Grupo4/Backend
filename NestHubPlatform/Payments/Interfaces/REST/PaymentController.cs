@@ -35,13 +35,13 @@ public class PaymentController(
         var resource = PaymentResourceFromEntityAssembler.ToResourceFromEntity(payment);
         return Ok(resource);
     }
-
+/*
     [HttpGet]
     public async Task<IActionResult> GetAllPayments()
     {
         var payments = await paymentQueryService.Handle(new GetAllPaymentsQuery());
         var resource = payments.Select(PaymentResourceFromEntityAssembler.ToResourceFromEntity);
         return Ok(resource);
-    }
+    }*/
     
 }
