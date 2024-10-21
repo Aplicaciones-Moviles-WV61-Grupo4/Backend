@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\USER\\source\\app-moviles\\newba\\NestHubPlatform\\NestHubPlatform.csproj": {}
+    "C:\\Users\\GAMER\\Desktop\\UPC - SOFTWARE\\UPC 2024-2\\Apps MOviles\\Backend\\NestHubPlatform\\NestHubPlatform.csproj": {}
   },
   "projects": {
-    "C:\\Users\\USER\\source\\app-moviles\\newba\\NestHubPlatform\\NestHubPlatform.csproj": {
+    "C:\\Users\\GAMER\\Desktop\\UPC - SOFTWARE\\UPC 2024-2\\Apps MOviles\\Backend\\NestHubPlatform\\NestHubPlatform.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\USER\\source\\app-moviles\\newba\\NestHubPlatform\\NestHubPlatform.csproj",
+        "projectUniqueName": "C:\\Users\\GAMER\\Desktop\\UPC - SOFTWARE\\UPC 2024-2\\Apps MOviles\\Backend\\NestHubPlatform\\NestHubPlatform.csproj",
         "projectName": "NestHubPlatform",
-        "projectPath": "C:\\Users\\USER\\source\\app-moviles\\newba\\NestHubPlatform\\NestHubPlatform.csproj",
-        "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USER\\source\\app-moviles\\newba\\NestHubPlatform\\obj\\",
+        "projectPath": "C:\\Users\\GAMER\\Desktop\\UPC - SOFTWARE\\UPC 2024-2\\Apps MOviles\\Backend\\NestHubPlatform\\NestHubPlatform.csproj",
+        "packagesPath": "C:\\Users\\GAMER\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\GAMER\\Desktop\\UPC - SOFTWARE\\UPC 2024-2\\Apps MOviles\\Backend\\NestHubPlatform\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\USER\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\GAMER\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -56,7 +58,7 @@
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[8.0.5, )"
+              "version": "[8.0.6, )"
             },
             "Microsoft.EntityFrameworkCore.Relational": {
               "target": "Package",
@@ -110,7 +112,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
