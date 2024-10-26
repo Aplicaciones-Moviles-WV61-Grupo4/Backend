@@ -47,9 +47,8 @@ public partial class Local
     public CityPlace Place { get; private set; }
     public DescriptionMessage Description { get; private set; }
     public LocalCategory? LocalCategory { get; internal set; }
-    public int LocalCategoryId { get; private set; }
+    public int LocalCategoryId { get; set; }
     public int UserId { get; set; }
-
     
     public string StreetAddress => Address.FullAddress;
     public string LocalType => LType.TypeLocal;

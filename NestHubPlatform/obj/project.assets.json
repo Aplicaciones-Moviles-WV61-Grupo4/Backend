@@ -8573,26 +8573,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\GAMER\\.nuget\\packages\\": {}
+    "C:\\Users\\angel\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\GAMER\\Desktop\\UPC - SOFTWARE\\UPC 2024-2\\Apps MOviles\\Backend\\NestHubPlatform\\NestHubPlatform.csproj",
+      "projectUniqueName": "C:\\Development\\RiderProjects\\Backend_NestHub\\NestHubPlatform\\NestHubPlatform.csproj",
       "projectName": "NestHubPlatform",
-      "projectPath": "C:\\Users\\GAMER\\Desktop\\UPC - SOFTWARE\\UPC 2024-2\\Apps MOviles\\Backend\\NestHubPlatform\\NestHubPlatform.csproj",
-      "packagesPath": "C:\\Users\\GAMER\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\GAMER\\Desktop\\UPC - SOFTWARE\\UPC 2024-2\\Apps MOviles\\Backend\\NestHubPlatform\\obj\\",
+      "projectPath": "C:\\Development\\RiderProjects\\Backend_NestHub\\NestHubPlatform\\NestHubPlatform.csproj",
+      "packagesPath": "C:\\Users\\angel\\.nuget\\packages\\",
+      "outputPath": "C:\\Development\\RiderProjects\\Backend_NestHub\\NestHubPlatform\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\GAMER\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\angel\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -8605,6 +8603,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -8683,7 +8686,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\angel\\.dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
