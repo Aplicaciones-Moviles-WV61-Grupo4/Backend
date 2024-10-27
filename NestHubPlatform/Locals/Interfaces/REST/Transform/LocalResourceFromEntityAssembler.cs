@@ -8,11 +8,11 @@ public static class LocalResourceFromEntityAssembler
     public static LocalResource ToResourceFromEntity(Local local)
     {
         return new LocalResource(
-            local.Id, 
-            local.StreetAddress, 
-            local.LocalType,
+            local.Id,
+            local.Title,  // Añadido `Title` en lugar de `LocalType`
+            local.StreetAddress,
             local.CityPlace,
-            local.NightPrice, 
+            local.NightPrice,
             local.PhotoUrl,
             local.DescriptionMessage,
             LocalCategoryResourceFromEntityAssembler.ToResourceFromEntity(local.LocalCategory),

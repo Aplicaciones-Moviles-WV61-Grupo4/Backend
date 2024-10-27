@@ -8,7 +8,7 @@ public partial class Local
 {
     public Local()
     {
-        LType = new LocalType();
+        Title = string.Empty;
         Address = new StreetAddress();
         Price = new NightPrice();
         Photo = new PhotoUrl();
@@ -16,15 +16,14 @@ public partial class Local
         Description = new DescriptionMessage();
     }
     
-    
-    public Local(string district, string street, string localType, string country, string city, int price, 
-           string photoUrl, string descriptionMessage , int localCategoryId, int userId) : this()
+    public Local(string title, string district, string street, string city, int price, 
+           string photoUrl, string descriptionMessage, int localCategoryId, int userId) : this()
     {
-        LType = new LocalType(localType);
+        Title = title;
         Address = new StreetAddress(district, street);
         Price = new NightPrice(price);
         Photo = new PhotoUrl(photoUrl);
-        Place = new CityPlace(country, city);
+        Place = new CityPlace(city);
         Description = new DescriptionMessage(descriptionMessage);
         LocalCategoryId = localCategoryId;
         UserId = userId;
@@ -32,15 +31,18 @@ public partial class Local
 
     public Local(CreateLocalCommand command)
     {
-        LType = new LocalType(command.LocalType);
+        Title = command.Title;
         Address = new StreetAddress(command.District, command.Street);
         Price = new NightPrice(command.Price);
         Photo = new PhotoUrl(command.PhotoUrl);
-        Place = new CityPlace(command.Country, command.City);
+        Place = new CityPlace(command.City);
+        Description = new DescriptionMessage(command.DescriptionMessage);
+        LocalCategoryId = command.LocalCategoryId;
+        UserId = command.UserId;
     }
 
     public int Id { get; }
-    public LocalType LType { get; private set; }
+    public string Title { get; private set; }
     public NightPrice Price { get; private set; }
     public PhotoUrl Photo { get; private set; }
     public StreetAddress Address { get; private set; }
@@ -51,7 +53,6 @@ public partial class Local
     public int UserId { get; set; }
     
     public string StreetAddress => Address.FullAddress;
-    public string LocalType => LType.TypeLocal;
     public int NightPrice => Price.PriceNight;
     public string PhotoUrl => Photo.PhotoUrlLink;
     public string CityPlace => Place.FullCityPlace;

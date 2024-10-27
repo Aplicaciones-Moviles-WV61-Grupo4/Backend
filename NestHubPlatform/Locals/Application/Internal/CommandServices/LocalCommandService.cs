@@ -9,11 +9,10 @@ namespace NestHubPlatform.Locals.Application.Internal.CommandServices;
 
 public class LocalCommandService (ILocalRepository localRepository, ILocalCategoryRepository localCategoryRepository, IUnitOfWork unitOfWork) : ILocalCommandService
 {
-    
     public async Task<Local?> Handle(CreateLocalCommand command)
     {
         //var userAuthenticated = User.GlobalVariables.UserId;
-        var local = new Local(command.District, command.Street, command.LocalType, command.Country, command.City, 
+        var local = new Local(command.Title, command.District, command.Street, command.City, 
             command.Price, command.PhotoUrl, command.DescriptionMessage, command.LocalCategoryId, command.UserId);
         //local.UserId = userAuthenticated;
         await localRepository.AddAsync(local);
