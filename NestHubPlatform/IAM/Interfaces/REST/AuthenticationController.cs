@@ -44,8 +44,25 @@ public class AuthenticationController(IUserCommandService userCommandService) : 
     [AllowAnonymous]
     public async Task<IActionResult> SignUp([FromBody] SignUpResource signUpResource)
     {
-        var signUpCommand = SignUpCommandFromResourceAssembler.ToCommandFromResource(signUpResource);
-        await userCommandService.Handle(signUpCommand);
-        return Ok(new { message = "User created successfully"});
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState);
+
+        try
+        {
+            var signUpCommand = SignUpCommandFromResourceAssembler.ToCommandFromResource(signUpResource);
+            await userCommandService.Handle(signUpCommand);
+            return Ok(new { message = "User created successfully" });
+        }
+        catch (ArgumentException ex)
+        {
+            return BadRequest(new { message = ex.Message });
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Sign-up error: {ex.Message}");
+            return StatusCode(500, "Internal Server Error");
+        }
     }
+
+
 }

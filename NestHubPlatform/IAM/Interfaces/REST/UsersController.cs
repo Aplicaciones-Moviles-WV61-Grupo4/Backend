@@ -27,10 +27,8 @@ namespace NestHubPlatform.IAM.Interfaces.REST;
 public class UsersController(
     IUserQueryService userQueryService,
     IUserCommandService userCommandService
-    ) : ControllerBase
+) : ControllerBase
 {
-    
-    
     /**
      * <summary>
      *     Get user by id endpoint. It allows to get a user by id
@@ -46,8 +44,7 @@ public class UsersController(
         var userResource = UserResourceFromEntityAssembler.ToResourceFromEntity(user!);
         return Ok(userResource);
     }
-    
-    
+
     /**
      * <summary>
      *     Get all users endpoint. It allows to get all users
