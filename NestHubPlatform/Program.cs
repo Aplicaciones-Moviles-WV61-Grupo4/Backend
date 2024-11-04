@@ -17,6 +17,9 @@ using NestHubPlatform.Contacts.Application.Internal.QueryService;
 using NestHubPlatform.Contacts.Domain.Repositories;
 using NestHubPlatform.Contacts.Domain.Services;
 using NestHubPlatform.Contacts.Infrastructure.Persistence.EFC.Repositories;
+using NestHubPlatform.IAM.Application.Internal.CommandServices;
+using NestHubPlatform.IAM.Application.Internal.QueryServices;
+using NestHubPlatform.IAM.Domain.Services;
 using NestHubPlatform.Locals.Application.Internal.OutboundServices.ACL;
 using NestHubPlatform.Locals.Application.Internal.OutboundServices.ACL.Interfaces;
 using NestHubPlatform.Locals.Interfaces.REST.Transform;
@@ -128,6 +131,10 @@ builder.Services.AddDbContext<AppDbContext>(
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 // Profiles Bounded Context Injection Configuration
+
+// USERS
+builder.Services.AddScoped<IUserCommandService, UserCommandService>();
+builder.Services.AddScoped<IUserQueryService, UserQueryService>();
 
 // LOCALS
 builder.Services.AddScoped<ILocalCommandService, LocalCommandService>();
