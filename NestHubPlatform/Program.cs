@@ -1,3 +1,5 @@
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using NestHubPlatform.Locals.Application.Internal.CommandServices;
 using NestHubPlatform.Locals.Application.Internal.CommandServices;
 using NestHubPlatform.Locals.Application.Internal.QueryServices;
@@ -11,6 +13,7 @@ using NestHubPlatform.Shared.Infrastructure.Interfaces.ASP.Configuration;
 using NestHubPlatform.Shared.Infrastructure.Persistence.EFC.Configuration;
 using NestHubPlatform.Shared.Infrastructure.Persistence.EFC.Repositories;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using NestHubPlatform.Contacts.Application.Internal.CommandServices;
 using NestHubPlatform.Contacts.Application.Internal.QueryService;
@@ -18,10 +21,14 @@ using NestHubPlatform.Contacts.Domain.Repositories;
 using NestHubPlatform.Contacts.Domain.Services;
 using NestHubPlatform.Contacts.Infrastructure.Persistence.EFC.Repositories;
 using NestHubPlatform.IAM.Application.Internal.CommandServices;
+using NestHubPlatform.IAM.Application.Internal.OutboundServices;
 using NestHubPlatform.IAM.Application.Internal.QueryServices;
 using NestHubPlatform.IAM.Domain.Respositories;
 using NestHubPlatform.IAM.Domain.Services;
+using NestHubPlatform.IAM.Infrastructure.Hashing.BCrypt.Services;
 using NestHubPlatform.IAM.Infrastructure.Persistence.EFC.Respositories;
+using NestHubPlatform.IAM.Infrastructure.Tokens.JWT.Configuration;
+using NestHubPlatform.IAM.Infrastructure.Tokens.JWT.Services;
 using NestHubPlatform.Locals.Application.Internal.OutboundServices.ACL;
 using NestHubPlatform.Locals.Application.Internal.OutboundServices.ACL.Interfaces;
 using NestHubPlatform.Locals.Interfaces.REST.Transform;
@@ -59,7 +66,32 @@ using NestHubPlatform.Reviews.Interfaces.ACL.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Add services to the container.*
+var configuration = builder.Configuration;
+var jwtSecret = builder.Configuration["Jwt:Secret"];
+builder.Services.AddSingleton(jwtSecret);
+// Add CORS Policy
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowedAllPolicy",
+        policy => policy
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader());
+});
+
+//Configuration JWT *
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Secret"])),
+            ValidateIssuer = false,
+            ValidateAudience = false
+        };
+    });
 
 builder.Services.AddControllers( options => options.Conventions.Add(new KebabCaseRouteNamingConvention()));
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -133,11 +165,14 @@ builder.Services.AddDbContext<AppDbContext>(
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 // Profiles Bounded Context Injection Configuration
-
+// TokenSettings Configuration
+builder.Services.Configure<TokenSettings>(builder.Configuration.GetSection("Jwt"));
 // USERS
 builder.Services.AddScoped<IUserCommandService, UserCommandService>();
 builder.Services.AddScoped<IUserQueryService, UserQueryService>();
 builder.Services.AddScoped<IUserRepository, UserRespository>();
+builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddScoped<IHashingService, HashingService>();
 
 // LOCALS
 builder.Services.AddScoped<ILocalCommandService, LocalCommandService>();
