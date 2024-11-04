@@ -23,6 +23,11 @@ public class TokenService(IOptions<TokenSettings> tokenSettings) : ITokenService
     public string GenerateToken(User user)
     {
         var secret = _tokenSettings.Secret;
+        if (string.IsNullOrEmpty(secret))
+        {
+            throw new ArgumentNullException(nameof(_tokenSettings.Secret), "JWT secret key is missing in configuration.");
+        }
+
         var key = Encoding.ASCII.GetBytes(secret);
         var tokenDescriptor = new SecurityTokenDescriptor
         {
@@ -32,14 +37,14 @@ public class TokenService(IOptions<TokenSettings> tokenSettings) : ITokenService
                 new Claim(ClaimTypes.Name, user.Username)
             }),
             Expires = DateTime.UtcNow.AddDays(7),
-            SigningCredentials =
-                new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+            SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
         };
         var tokenHandler = new JsonWebTokenHandler();
 
         var token = tokenHandler.CreateToken(tokenDescriptor);
         return token;
     }
+
 
     /**
      * <summary>

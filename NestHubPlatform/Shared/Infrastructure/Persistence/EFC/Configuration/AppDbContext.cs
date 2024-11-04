@@ -2,6 +2,7 @@ using NestHubPlatform.Shared.Infrastructure.Persistence.EFC.Configuration.Extens
 using EntityFrameworkCore.CreatedUpdatedDate.Extensions;
 using Microsoft.EntityFrameworkCore;
 using NestHubPlatform.Contacts.Domain.Model.Aggregates;
+using NestHubPlatform.IAM.Domain.Model.Aggregates;
 using NestHubPlatform.Locals.Domain.Model.Aggregates;
 using NestHubPlatform.Locals.Domain.Model.Entities;
 using NestHubPlatform.Payments.Domain.Model.Aggregates;
@@ -24,10 +25,16 @@ public class AppDbContext(DbContextOptions options) : DbContext(options)
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
-        
+
         // Place here your entities configuration
-        
-        // LOCAL
+
+        // IAM Context
+        builder.Entity<User>().HasKey(u => u.Id);
+        builder.Entity<User>().Property(u => u.Id).IsRequired().ValueGeneratedOnAdd();
+        builder.Entity<User>().Property(u => u.Username).IsRequired();
+        builder.Entity<User>().Property(u => u.PasswordHash).IsRequired();
+
+    // LOCAL
         builder.Entity<LocalCategory>().HasKey(c => c.Id);
         builder.Entity<LocalCategory>().Property(c => c.Id).IsRequired().ValueGeneratedOnAdd();
         builder.Entity<LocalCategory>().Property(c => c.Name).IsRequired().HasMaxLength(30);

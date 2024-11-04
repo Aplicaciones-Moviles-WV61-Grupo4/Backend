@@ -69,7 +69,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.*
 var configuration = builder.Configuration;
 var jwtSecret = builder.Configuration["Jwt:Secret"];
-builder.Services.AddSingleton(jwtSecret);
+
 // Add CORS Policy
 builder.Services.AddCors(options =>
 {
@@ -87,9 +87,10 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuerSigningKey = true,
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Secret"])),
-            ValidateIssuer = false,
-            ValidateAudience = false
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:Key"])), // Cambiado de Jwt:Secret a Jwt:Key
+            ValidateIssuer = true,
+            ValidateAudience = false,
+            ValidIssuer = configuration["Jwt:Issuer"] // Asegúrate de que "Jwt:Issuer" esté definido
         };
     });
 
