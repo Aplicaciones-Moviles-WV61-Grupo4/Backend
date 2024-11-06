@@ -87,11 +87,12 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuerSigningKey = true,
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:Key"])), // Cambiado de Jwt:Secret a Jwt:Key
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:Secret"])), // Cambiado a Jwt:Secret
             ValidateIssuer = true,
             ValidateAudience = false,
-            ValidIssuer = configuration["Jwt:Issuer"] // Asegúrate de que "Jwt:Issuer" esté definido
+            ValidIssuer = configuration["Jwt:Issuer"] // Asegúrate de que "Jwt:Issuer" esté definido en tu configuración
         };
+
     });
 
 builder.Services.AddControllers( options => options.Conventions.Add(new KebabCaseRouteNamingConvention()));
@@ -246,7 +247,7 @@ using (var scope = app.Services.CreateScope())
 
 
 app.UseHttpsRedirection();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

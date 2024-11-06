@@ -25,7 +25,11 @@ public class UserRespository (AppDbContext context) : BaseRepository<User>(conte
      */
     public async Task<User?> FindByUsernameAsync(string username)
     {
-        return await Context.Set<User>().FirstOrDefaultAsync(user => user.Username.Equals(username));
+        
+        var user = await Context.Set<User>().FirstOrDefaultAsync(user => user.Username.Equals(username));
+        Console.WriteLine(user != null ? "User found" : "User not found");
+        return user;
+
     }
     
     /**
